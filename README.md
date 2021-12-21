@@ -64,7 +64,9 @@ instagram/tinder prototype
 ## Models
 
 -User model
-  username: String,
+
+```javascript
+ { username: String,
   email: {
     type: String,
     required: true,
@@ -75,14 +77,17 @@ instagram/tinder prototype
   hashedPassword: {
     type: String,
     required: [true, 'password is required'],
-  },
-  
+  },}
+```  
 
 -Pet model 
-  category: [dog, cat, others],
+```javascript
+ { category: [dog, cat, others],
   gender: [male, female],
   name: String,
   Age: Number,
   Race: String,
   Colour: String,
   Location: [array con los diferentes barrios de Bcn]
+  }
+```
