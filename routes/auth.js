@@ -1,11 +1,11 @@
 const express = require('express');
 
-function baseRoutes() {
+function authRoutes() {
   const router = express.Router();
 
   router.get('/', async (req, res, next) => {
     try {
-      res.render('index.hbs', { name: 'Ironhack' });
+      res.render('authentication/signUp.hbs');
     } catch (e) {
       next(e);
     }
@@ -14,4 +14,4 @@ function baseRoutes() {
   return router;
 }
 
-module.exports = baseRoutes;
+module.exports = authRoutes;

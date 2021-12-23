@@ -7,6 +7,7 @@ const morgan = require('morgan');
 
 const { MONGO_URI } = require('./db/index');
 
+const authRoutes = require('./routes/auth');
 const baseRoutes = require('./routes/base');
 
 handlebars.registerPartials(`${__dirname}/views/partials`);
@@ -36,6 +37,8 @@ function setupApp() {
   ); */
 
   app.use('/', baseRoutes());
+
+  app.use('/signUp', authRoutes());
 
   app.use((req, res) => {
     res.render('404.hbs');
