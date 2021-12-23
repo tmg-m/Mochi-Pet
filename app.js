@@ -20,7 +20,7 @@ function setupApp() {
   app.use(express.static('public'));
   app.use(cookieParser());
   app.use(morgan('dev'));
-  app.use(
+  /* app.use(
     session({
       store: MongoStore.create({
         mongoUrl: MONGO_URI,
@@ -33,7 +33,7 @@ function setupApp() {
         maxAge: 24 * 60 * 60 * 1000,
       },
     }),
-  );
+  ); */
 
   app.use('/', baseRoutes());
 
