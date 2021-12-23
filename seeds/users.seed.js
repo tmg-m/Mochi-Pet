@@ -37,11 +37,6 @@ const user = [
         required: true,
         unique: true,
     },
-    nif: {
-        type: String,
-        unique: true
-    },
-    dateBirthday: Date,
     hashedPassword: {
         type: String,
         required: [true, 'password is required'],
