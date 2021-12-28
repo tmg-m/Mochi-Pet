@@ -38,7 +38,7 @@ function setupApp() {
 
   app.use('/', baseRoutes());
 
-  app.use('/signUp', authRoutes());
+  app.use('/', authRoutes());
 
   app.use((req, res) => {
     res.render('404.hbs');
