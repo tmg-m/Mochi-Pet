@@ -1,0 +1,11 @@
+
+/* Sign-Up page */
+.signUp-container {
+    display: flex;
+    justify-content: center;
+}
+.form-register {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+}
