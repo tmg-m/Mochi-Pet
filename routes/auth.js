@@ -13,7 +13,6 @@ function authRoutes() {
 
   // sign in
   router.get('/logIn', (req, res, next) => {
-
     //if user is logged in ,line 17-20
     if (req.session.currentUser) {
       return res.redirect('/home');
@@ -52,7 +51,6 @@ function authRoutes() {
 
   // sign up
   router.get('/signUp', (req, res, next) => {
-
     //if user is logged in ,line 50-53
     if (req.session.currentUser) {
       return res.redirect('/home');
@@ -78,7 +76,7 @@ function authRoutes() {
         email,
         hashedPassword,
       });
-      res.redirect('/');
+      res.redirect('/pet-create');  ///
       console.log('a user is created!');
     } catch (err) {
       next(err);

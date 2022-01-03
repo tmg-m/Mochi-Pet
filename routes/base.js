@@ -30,6 +30,10 @@ function baseRoutes() {
     }
   });
 
+  router.get('/pet-create', (req, res, next) => {
+    return res.render('pet-create.hbs');
+  });
+
   return router;
 }
 
