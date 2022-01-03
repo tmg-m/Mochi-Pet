@@ -1,0 +1,14 @@
+<div class="SignUp-container">
+    <form action="/logIn" method="post">
+        <h4>Sign In</h4>
+        <input type="text" name="username" id="username" placeholder="Username">
+        <input type="password" name="password" id="password" placeholder="Password">
+        <input class="botons" type="submit" value="SignIn">
+        {{#if errorMessage}}
+        <span style="background-color: rgb(255, 51, 51);
+            color: white;">
+            {{errorMessage}}
+        </span>
+        {{/if}}
+    </form>
+</div>
