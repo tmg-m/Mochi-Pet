@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'password is required'],
   },
+  pets: [],
 });
 
 const User = mongoose.model('User', userSchema);

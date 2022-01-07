@@ -15,7 +15,7 @@ function authRoutes() {
   router.get('/logIn', (req, res, next) => {
     //if user is logged in ,line 17-20
     if (req.session.currentUser) {
-      return res.redirect('/home');
+      return res.redirect('/');
     }
 
     res.render('authentication/LogIn.hbs');
@@ -40,7 +40,7 @@ function authRoutes() {
           _id,
           username,
         };
-        res.redirect('/home');
+        res.redirect('/');
       } else {
         return res.render('authentication/logIn', { errorMessage: 'Your username or password is Incorrect' });
       }
@@ -53,7 +53,7 @@ function authRoutes() {
   router.get('/signUp', (req, res, next) => {
     //if user is logged in ,line 50-53
     if (req.session.currentUser) {
-      return res.redirect('/home');
+      return res.redirect('/pet-create');
     }
 
     res.render('authentication/signUp.hbs');
@@ -76,8 +76,17 @@ function authRoutes() {
         email,
         hashedPassword,
       });
-      res.redirect('/pet-create');  ///
-      console.log('a user is created!');
+
+      // auto login after user creation
+      const dbUser = await User.findOne({ username });
+      const { _id } = dbUser;
+      if(dbUser) {
+        req.session.currentUser = {
+          _id,
+          username,
+        };
+      }
+      res.redirect('/pet-create');
     } catch (err) {
       next(err);
     }
