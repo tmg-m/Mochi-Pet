@@ -49,6 +49,14 @@ function authRoutes() {
     }
   });
 
+  // logout
+  router.post('/logout', (req, res, next) => {
+    req.session.destroy(err => {
+      if (err) next(err);
+      res.redirect('/');
+    });
+  });
+
   // sign up
   router.get('/signUp', (req, res, next) => {
     //if user is logged in ,line 50-53

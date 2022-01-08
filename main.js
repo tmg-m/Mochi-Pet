@@ -1,5 +1,6 @@
 const setupApp = require('./app');
 const { startDB, stopDB } = require('./db');
+const { findOneAndDelete, db } = require('./models/user');
 
 const port = process.env.PORT || 3000;
 
