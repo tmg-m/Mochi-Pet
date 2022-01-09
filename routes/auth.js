@@ -68,12 +68,12 @@ function authRoutes() {
   });
 
   router.post('/signUp', async (req, res, next) => {
-    const { username, email, password, passwordTwo } = req.body;
+    const { username, name, email, password, passwordTwo } = req.body;
 
     try {
       if (password !== passwordTwo) {
         console.log('passwords does not match');
-        return res.render('authentication/signUp', { errorMessage: "Passwords doesn't match !" })
+        return res.render('authentication/signUp', { errorMessage: "Passwords doesn't match !" });
       }
 
       const salt = bcrypt.genSaltSync(saltRounds);
@@ -81,6 +81,7 @@ function authRoutes() {
 
       await User.create({
         username,
+        name,
         email,
         hashedPassword,
       });
@@ -88,7 +89,7 @@ function authRoutes() {
       // auto login after user creation
       const dbUser = await User.findOne({ username });
       const { _id } = dbUser;
-      if(dbUser) {
+      if (dbUser) {
         req.session.currentUser = {
           _id,
           username,
