@@ -16,7 +16,6 @@ function petRoutes() {
 
     console.log('creating pet');
     try {
-
       await Pet.create({
         petOwner,
         petName,
@@ -24,7 +23,7 @@ function petRoutes() {
         petGender,
         petColor,
       });
-      
+
       res.render('pet-create', { errorMessage: 'Pet created !' });
     } catch (err) {
       next(err);
