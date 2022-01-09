@@ -11,17 +11,20 @@ function petRoutes() {
   });
 
   router.post('/pet-create', async (req, res, next) => {
-    const { petName, petType, petGender, petColor } = req.body;
+    const { petCategory, petGender, petName, petAge, petColor, address, city } = req.body;
     const petOwner = req.session.currentUser;
 
     console.log('creating pet');
     try {
       await Pet.create({
         petOwner,
-        petName,
-        petType,
+        petCategory,
         petGender,
+        petName,
+        petAge,
         petColor,
+        address,
+        city,
       });
 
       res.render('pet-create', { errorMessage: 'Pet created !' });
