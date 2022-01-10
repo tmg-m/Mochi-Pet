@@ -26,8 +26,8 @@ function petRoutes() {
         address,
         city,
       });
-
-      res.render('pet-create', { errorMessage: 'Pet created !' });
+      console.log('pet created');
+      res.redirect('/');
     } catch (err) {
       next(err);
     }

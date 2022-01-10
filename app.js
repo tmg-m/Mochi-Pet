@@ -41,7 +41,7 @@ function setupApp() {
 
   app.use('/', baseRoutes());
   app.use('/', authRoutes());
-  app.use('/', isLoggedIn, petRoutes());
+  app.use('/pet', isLoggedIn, petRoutes());
 
   app.use((req, res) => {
     res.render('404.hbs');
