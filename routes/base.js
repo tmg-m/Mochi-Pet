@@ -10,7 +10,6 @@ function baseRoutes() {
       if (req.session.currentUser) {
         return res.render('home.hbs');
       }
-
       res.render('index.hbs', { name: 'myApp' });
     } catch (e) {
       next(e);
