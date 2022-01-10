@@ -95,7 +95,7 @@ function authRoutes() {
           username,
         };
       }
-      res.redirect('/pet-create');
+      res.redirect('/pet/pet-create');
     } catch (err) {
       next(err);
     }
