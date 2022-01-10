@@ -1,11 +1,33 @@
+/* Authentication */
 
-/* Sign-Up page */
-.signUp-container {
-    display: flex;
-    justify-content: center;
+.LogIn-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.form-register {
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
+
+.logIn-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.signUp-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signUp-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }

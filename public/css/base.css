@@ -18,6 +18,23 @@ body {
   box-sizing: border-box;
 }
 
-.hidden {
-  display: none;
+/* Index */
+
+.indexContainer {
+  border: 2px solid red;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+
 }
+
+.auth-direct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
