@@ -7,7 +7,11 @@ const morgan = require('morgan');
 
 const { MONGO_URI } = require('./db/index');
 
+const authRoutes = require('./routes/auth');
 const baseRoutes = require('./routes/base');
+const petRoutes = require('./routes/pet');
+
+const { isLoggedIn } = require('./middlewares');
 
 handlebars.registerPartials(`${__dirname}/views/partials`);
 
@@ -36,6 +40,8 @@ function setupApp() {
   );
 
   app.use('/', baseRoutes());
+  app.use('/', authRoutes());
+  app.use('/pet', isLoggedIn, petRoutes());
 
   app.use((req, res) => {
     res.render('404.hbs');

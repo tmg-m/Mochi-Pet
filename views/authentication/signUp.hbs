@@ -1,0 +1,19 @@
+<div class="signUp-container">
+    <form class="signUp-form" action="/signUp" method="post">
+        <h4>Sign Up</h4>
+        <input type="text" name="username" id="username" placeholder="Insert username">
+        <input type="text" name="name" id="name" placeholder="Insert your name">
+        <input type="email" name="email" id="email" placeholder="Insert email">
+        <input type="password" name="password" id="password" placeholder="Insert password">
+        <input type="password" name="passwordTwo" id="passwordTwo" placeholder="Insert password again">
+        <p>I agree with all <a href="#">Terms y Conditions</a></p>
+        <input class="botons" type="submit" value="Register">
+        {{#if errorMessage}}
+        <span style="background-color: rgb(255, 51, 51);
+            color: white;">
+            {{errorMessage}}
+        </span>
+        {{/if}}
+        <button><a href="/">back</a></button>
+    </form>
+</div>
