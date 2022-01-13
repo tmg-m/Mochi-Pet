@@ -1,5 +1,6 @@
 const express = require('express');
 const { isLoggedIn } = require('../middlewares');
+const Pet = require('../models/pet');
 
 function baseRoutes() {
   const router = express.Router();
@@ -8,7 +9,10 @@ function baseRoutes() {
     try {
       //if user is logged in ,line 10-12
       if (req.session.currentUser) {
-        return res.render('home.hbs');
+        console.log('find');
+        const pets = await Pet.find({});
+        console.log('pet found');
+        return res.render('home.hbs', { pets });
       }
       res.render('index.hbs', { name: 'myApp' });
     } catch (e) {
