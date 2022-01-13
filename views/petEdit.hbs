@@ -1,0 +1,31 @@
+<form action="/pet/{{pet._id}}/edit" method="POST">
+    <h4>Your pet</h4>
+    <select name="petCategory" id="petCategory">
+        <option>{{pet.petCategory}}</option>
+        <option Value="Dog">Dog</option>
+        <option value="Cat">Cat</option>
+        <option value="Hamster">Hamster</option>
+        <option value="Fish">Fish</option>
+        <option value="Bird">Bird</option>
+        <option value="Other">Other</option>
+    </select>
+    <div>
+        <div>
+            <label for="Male">Male</label>
+            <input type="radio" name="petGender" id="male" value="{{pet.petGender}}">
+        </div>
+        <div>
+            <label for="Male">Female</label>
+            <input type="radio" name="petGender" id="female" value="{{pet.petGender}}">
+        </div>
+    </div>
+    <input type="text" name="petName" id="petName" value="{{pet.petName}}">
+    <input type="number" name="petAge" id="petAge" placeholder="{{pet.petAge}}" min="0" max="100">
+    <input type="text" name="petColor" id="petColor" placeholder="{{pet.petColor}}">
+    <input type="text" name="address" id="address" placeholder="{{pet.address}}">
+    <input type="text" name="city" id="city" placeholder="{{pet.city}}">
+    <input class="botons" type="submit" value="Add">
+</form>
+<form action="/pet/{{pet._id}}/delete" method="POST">
+    <button type="submit">delete pet</button>
+</form>

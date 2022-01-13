@@ -1,3 +1,4 @@
-<div>
-  Card
-</div>
+{{#each pets}}
+<h1>{{this.petName}}</h1>
+<a href="/pet/{{this._id}}">details</a>
+{{/each}}
