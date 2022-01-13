@@ -1,11 +1,7 @@
 <form action="/pet/{{pet._id}}/edit" method="POST">
     <h4>Your pet</h4>
     <select name="petCategory" id="petCategory">
-<<<<<<< HEAD
-        <option selected>Category</option>
-=======
         <option>{{pet.petCategory}}</option>
->>>>>>> crud-thor
         <option Value="Dog">Dog</option>
         <option value="Cat">Cat</option>
         <option value="Hamster">Hamster</option>
@@ -24,17 +20,10 @@
         </div>
     </div>
     <input type="text" name="petName" id="petName" value="{{pet.petName}}">
-<<<<<<< HEAD
-    <input type="number" name="petAge" id="petAge" placeholder="Age" min="0" max="100">
-    <input type="text" name="petColor" id="petColor" placeholder="Color">
-    <input type="text" name="address" id="address" placeholder="address">
-    <input type="text" name="city" id="city" placeholder="City">
-=======
     <input type="number" name="petAge" id="petAge" placeholder="{{pet.petAge}}" min="0" max="100">
     <input type="text" name="petColor" id="petColor" placeholder="{{pet.petColor}}">
     <input type="text" name="address" id="address" placeholder="{{pet.address}}">
     <input type="text" name="city" id="city" placeholder="{{pet.city}}">
->>>>>>> crud-thor
     <input class="botons" type="submit" value="Add">
 </form>
 <form action="/pet/{{pet._id}}/delete" method="POST">

@@ -10,11 +10,7 @@ function baseRoutes() {
     const isLogged = req.session.currentUser;
     try {
       //if user is logged in ,line 10-12
-<<<<<<< HEAD
-      if (req.session.currentUser) {
-=======
       if (isLogged) {
->>>>>>> crud-thor
         console.log('find');
         const pets = await Pet.find({});
         console.log('pet found');
