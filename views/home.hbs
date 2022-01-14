@@ -1,8 +1,7 @@
 <h1>Home</h1>
-<button><a href="/pet/pet-create">Add Pet</a></button>
-<button><a href="/pet/search">search</a></button>
 {{eachPet.petName}}
 {{> card}}
-{{#each allPets}}
+{{#each eachPet}}
+    <h1>{{this.petName}}</h1>
 {{/each}}
 {{> nav}}

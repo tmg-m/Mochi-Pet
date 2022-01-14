@@ -1,5 +1,6 @@
 const express = require('express');
 const { isLoggedIn } = require('../middlewares');
+const Pet = require('../models/pet');
 const User = require('../models/user');
 
 function userRoutes() {
@@ -8,7 +9,7 @@ function userRoutes() {
   router.get('/:id', async (req, res, next) => {
     const { id } = req.params;
     try {
-      const user = await User.findById(id);
+      const user = await User.findById(id).populate('userPets');
       res.render('user/profile.hbs', { user });
     } catch (e) {
       next(e);
@@ -44,6 +45,29 @@ function userRoutes() {
     } catch (e) {
       next(e);
     }
+  });
+
+  // delete user
+  router.post('/:id/delete', async (req, res, next) => {
+    const { id } = req.params;
+    console.log(id);
+    try {
+      await User.findByIdAndDelete(id);
+      req.session.destroy(err => {
+        next(err)
+      });
+      res.redirect('/');
+    } catch (e) {
+      next(e);
+    }
+  });
+
+  // logout
+  router.post('/logout', (req, res, next) => {
+    req.session.destroy(err => {
+      if (err) next(err);
+      res.redirect('/');
+    });
   });
 
   return router;

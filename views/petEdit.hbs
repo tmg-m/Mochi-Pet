@@ -12,11 +12,11 @@
     <div>
         <div>
             <label for="Male">Male</label>
-            <input type="radio" name="petGender" id="male" value="{{pet.petGender}}">
+            <input type="radio" name="petGender" id="male" value="Male"{{{setChecked 'Male' pet.petGender}}}>
         </div>
         <div>
             <label for="Male">Female</label>
-            <input type="radio" name="petGender" id="female" value="{{pet.petGender}}">
+            <input type="radio" name="petGender" id="female" value="Female"{{{setChecked 'Female' pet.petGender}}}>
         </div>
     </div>
     <input type="text" name="petName" id="petName" value="{{pet.petName}}">
@@ -29,3 +29,4 @@
 <form action="/pet/{{pet._id}}/delete" method="POST">
     <button type="submit">delete pet</button>
 </form>
+{{> nav}}

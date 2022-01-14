@@ -5,17 +5,15 @@ const Pet = require('../models/pet');
 function baseRoutes() {
   const router = express.Router();
   router.get('/', async (req, res, next) => {
-
     const isLogged = req.session.currentUser;
+    if (!isLogged) {
+      return res.render('index');
+    }
     try {
-      userId = req.session.currentUser._id;
+      const userId = req.session.currentUser._id;
       const user = userId;
-      //if user is logged in ,line 10-12
-      if (isLogged) {
-        const pets = await Pet.find({});
-        return res.render('home.hbs', { pets, user });
-      }
-      res.render('index.hbs', { name: 'myApp' });
+      const pets = await Pet.find({});
+      return res.render('home.hbs', { pets, user, isLogged });
     } catch (e) {
       next(e);
     }

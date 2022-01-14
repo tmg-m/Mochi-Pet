@@ -14,6 +14,14 @@ const userRoutes = require('./routes/user');
 
 const { isLoggedIn } = require('./middlewares');
 
+handlebars.registerHelper('setChecked', function (value, currentValue) {
+  if (value == currentValue) {
+    return 'checked';
+  } else {
+    return '';
+  }
+});
+
 handlebars.registerPartials(`${__dirname}/views/partials`);
 
 function setupApp() {

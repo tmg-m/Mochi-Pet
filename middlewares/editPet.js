@@ -6,5 +6,5 @@ const updateIfUser = (req, res, next) => {
 };
 
 module.exports = {
-  isLoggedIn,
+  updateIfUser,
 };
