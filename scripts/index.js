@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const MONGO_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/course-db';
+const MONGO_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/myApp-db';
 
 const runScript = async () => {
   try {

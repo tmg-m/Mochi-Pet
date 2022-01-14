@@ -7,7 +7,11 @@ const morgan = require('morgan');
 
 const { MONGO_URI } = require('./db/index');
 
+const authRoutes = require('./routes/auth');
 const baseRoutes = require('./routes/base');
+const petRoutes = require('./routes/pet');
+
+const { isLoggedIn } = require('./middlewares');
 
 handlebars.registerPartials(`${__dirname}/views/partials`);
 
@@ -26,7 +30,7 @@ function setupApp() {
         mongoUrl: MONGO_URI,
         ttl: 24 * 60 * 60,
       }),
-      secret: process.env.SECRET,
+      secret: "Ironhack",
       resave: true,
       saveUninitialized: true,
       cookie: {
@@ -36,6 +40,8 @@ function setupApp() {
   );
 
   app.use('/', baseRoutes());
+  app.use('/', authRoutes());
+  app.use('/', isLoggedIn, petRoutes());
 
   app.use((req, res) => {
     res.render('404.hbs');

@@ -1,2 +1,7 @@
-<h1>Header</h1>
-{{> card }}
+<h1>Home</h1>
+{{eachPet.petName}}
+{{> card}}
+{{#each eachPet}}
+    <h1>{{this.petName}}</h1>
+{{/each}}
+{{> nav}}
