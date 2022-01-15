@@ -1,4 +1,11 @@
-{{#each pets}}
-<h1>{{this.petName}}</h1>
-<a href="/pet/{{this._id}}">details</a>
-{{/each}}
+<div class="card-pet">
+	<div class="pet-info">
+		<h1>Name: {{this.petName}}</h1>
+		<h1>Category: {{this.petCategory}}</h1>
+		<h1>Gender: {{this.petGender}}</h1>
+		<h1>Color: {{this.petColor}}</h1>
+		<h1>Address: {{this.address}}</h1>
+		<h1>City: {{this.city}}</h1>
+	</div>
+	<a class="edit-pet" href="/pet/{{this._id}}">Edit</a>
+</div>

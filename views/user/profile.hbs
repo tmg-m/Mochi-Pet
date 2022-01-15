@@ -1,13 +1,18 @@
-<h1>User Profile</h1>
-<h1>{{user.username}}</h1>
-<h1>{{user.name}}</h1>
-<h1>{{user.email}}</h1>
-<button><a href="/pet/pet-create">Add Pet</a></button>
-{{#each user.userPets}}
-<h1>{{this.petName}}</h1>
-{{/each}}
-<a href="/user/{{user._id}}/userEdit">Edit User</a>
-<form action="logout" id="logout-form" method="POST">
-    <button>Logout</button>
-</form>
+<div class="profile-container">
+	<div class="userInfo">
+		<h1>User Profile</h1>
+		<h1>@{{user.username}}</h1>
+		<h1>Name: {{user.name}}</h1>
+		<a href="/user/{{user._id}}/userEdit">Edit User</a>
+	</div>
+	<div class="user-pets">
+		{{#each user.userPets}}
+		{{> myPet}}
+		{{/each}}
+	</div>
+	<button><a href="/pet/pet-create">Add Pet</a></button>
+	<form action="logout" id="logout-form" method="POST">
+		<button>Logout</button>
+	</form>
+</div>
 {{> nav}}

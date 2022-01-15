@@ -1,6 +1,7 @@
 const express = require('express');
 const { isLoggedIn } = require('../middlewares');
 const Pet = require('../models/pet');
+const User = require('../models/user');
 
 function baseRoutes() {
   const router = express.Router();
@@ -10,10 +11,10 @@ function baseRoutes() {
       return res.render('index');
     }
     try {
-      const userId = req.session.currentUser._id;
-      const user = userId;
+      const user = req.session.currentUser._id;
+      const userInfo = await User.findById(user)
       const pets = await Pet.find({});
-      return res.render('home.hbs', { pets, user, isLogged });
+      return res.render('home.hbs', { pets, user, userInfo, isLogged });
     } catch (e) {
       next(e);
     }

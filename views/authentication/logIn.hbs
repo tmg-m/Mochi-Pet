@@ -1,16 +1,34 @@
-<div class="LogIn-container">
+<div class="logIn-container">
+    <h1 class="img-container-login"></h1>
     <form class="logIn-form" action="/logIn" method="post">
-        <h4>Log In</h4>
-        <input type="text" name="username" id="username" placeholder="Username">
-        <input type="password" name="password" id="password" placeholder="Password">
-        <input class="botons" type="submit" value="SignIn">
-        {{#if errorMessage}}
-        <span style="background-color: rgb(255, 51, 51);
-            color: white;">
-            {{errorMessage}}
-        </span>
-        {{/if}}
-        <button><a href="/">back</a></button>
+        <div class="user-form">
+            <svg class="w-6 h-6 login-img" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+            <input type="text" name="username" id="username" placeholder="Username">
+        </div>
+        <div class="user-form">
+            <svg class="w-6 h-6 login-img" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                </path>
+            </svg>
+            <input type="password" name="password" id="password" placeholder="Password">
+        </div>
+        <div class="login-btns">
+            <button class="botons auth-btn login-color" type="submit" value="SignIn">Sign In</button>
+            <a class="auth-btn" href="/">back</a>
+            <div class="error-msg">
+                {{#if errorMessage}}
+                <p style="color: rgb(255, 102, 102);">
+                    {{errorMessage}}
+                </p>
+                {{/if}}
+            </div>
+        </div>
     </form>
-    
+
 </div>
