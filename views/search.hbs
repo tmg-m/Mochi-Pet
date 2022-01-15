@@ -1,0 +1,21 @@
+<h1>search</h1>
+
+<form action="/pet/search" method="POST">
+    <h4>Your pet</h4>
+    <select name="petCategory" id="petCategory">
+        <option Value="Dog" selected>Dog</option>
+        <option value="Cat">Cat</option>
+        <option value="Hamster">Hamster</option>
+        <option value="Fish">Fish</option>
+        <option value="Bird">Bird</option>
+        <option value="Other">Other</option>
+    </select>
+    <input class="botons" type="submit" value="Search">
+</form>
+{{#if errorMessage}}
+<span style="background-color: rgb(255, 51, 51);
+            color: white;">
+    {{errorMessage}}
+</span>
+{{/if}}
+{{> nav}}

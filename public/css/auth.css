@@ -1,0 +1,101 @@
+/* Authentication */
+
+/* login */
+.logIn-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logIn-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.user-form {
+  border: 2px solid rgb(0, 0, 0);
+  width: 250px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  border-radius: 10px;
+  color: rgb(84, 84, 84);
+  font-weight: bold;
+  gap: 10px;
+}
+
+.user-form input {
+  border: none;
+  height: 50%;
+}
+
+.login-img {
+  display: block;
+  height: 60%;
+}
+
+.login-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.error-msg {
+  height: 10px;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/img/istockphoto-1132462309-170667a.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position-y: 40%;
+  background-position-x: 50%;
+  background-size: 200px 200px;
+  height: 150px;
+  width: 150px;
+  color: white;
+}
+
+.img-container-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/img/istockphoto-1132462309-170667a.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position-x: 52%;
+  background-position-y: 10%;
+  background-size: 200px 200px;
+  height: 150px;
+  width: 150px;
+  color: white;
+}
+
+/* Sign up */
+.signUp-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signUp-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+

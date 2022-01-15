@@ -15,4 +15,88 @@ body {
   font-size: 16px;
   font-family: 'Rubik', sans-serif;
   color: var(--dark-grey);
+  box-sizing: border-box;
 }
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+/* nav */
+nav {
+  height: 80px;
+  width: 95%;
+  border-radius: 35px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  border: 2px solid rgb(38, 38, 38);
+  bottom: 20;
+  background-color: white;
+  box-shadow: 0px 10px 10px 7px rgb(79, 79, 79);
+}
+
+.nav-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  background-color: white;
+}
+
+.nav-home{
+  height: 50px;
+  width: 50px;
+  border: none;
+  background-color: white;
+  background-color: ;
+}
+
+/* Index */
+
+.indexContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+.auth-direct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.auth-btn {
+  border: 3px solid rgb(255, 140, 0);
+  width: 250px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  border-radius: 30px;
+  color: rgb(84, 84, 84);
+  font-weight: bold;
+}
+
+.login-color {
+  background-color: rgb(255, 140, 0);
+  color: white;
+  font-weight: bolder;
+}
+

@@ -1,0 +1,45 @@
+/* Home */
+.home-container {
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.home-user-info {
+  height: 50px;
+  font-size: 1.6rem;
+}
+
+/* Profile */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+
+.userInfo {
+  padding-bottom: 100px;
+}
+.userInfo > a {
+  padding-top: 20px;
+}
+
+.user-pets {
+    border: 2px solid rgb(125, 125, 125);
+    display: flex;
+    width: 100%;
+    height: 100px;
+    gap: 20px;
+}
+
+.myPet-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-container button{
+  margin-top: 50px;
+  height: 50px;
+}

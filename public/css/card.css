@@ -1,0 +1,23 @@
+.card-pet {
+    width: 350px;
+    max-height: 200px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    background-color: rgb(255, 200, 132);
+    border: 2px solid rgb(206, 206, 206);
+    color: rgb(91, 91, 91);
+    box-shadow: 0px 5px 5px 3px rgb(79, 79, 79);
+}
+
+.pet-info {
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.edit-pet {
+    position: relative;
+    bottom: 170;
+    left: 290;
+}

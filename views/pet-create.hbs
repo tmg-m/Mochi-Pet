@@ -1,0 +1,39 @@
+<h1>pet create</h1>
+<div class="SignUp-container">
+    <form action="/pet/pet-create" method="POST">
+        <h4>Your pet</h4>
+        <select name="petCategory" id="petCategory">
+            <option selected>Category</option>
+            <option Value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+            <option value="Hamster">Hamster</option>
+            <option value="Fish">Fish</option>
+            <option value="Bird">Bird</option>
+            <option value="Other">Other</option>
+        </select>
+        <div>
+            <div>
+                <label for="Male">Male</label>
+                <input type="radio" name="petGender" id="male" value="Male">
+            </div>
+            <div>
+                <label for="Male">Female</label>
+                <input type="radio" name="petGender" id="female" value="Female">
+            </div>
+        </div>
+        <input type="text" name="petName" id="petName" placeholder="Name">
+        <input type="number" name="petAge" id="petAge" placeholder="Age" min="0" max="100">
+        <input type="text" name="petColor" id="petColor" placeholder="Color">
+        <input type="text" name="address" id="address" placeholder="address">
+        <input type="text" name="city" id="city" placeholder="City">
+        <input class="botons" type="submit" value="Add">
+        {{#if errorMessage}}
+        <span style="background-color: rgb(255, 51, 51);
+            color: white;">
+            {{errorMessage}}
+        </span>
+        {{/if}}
+    </form>
+    <button><a href="/">back</a></button>
+</div>
+{{> nav}}
