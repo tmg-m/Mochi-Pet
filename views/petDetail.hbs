@@ -5,7 +5,5 @@
 {{pet.petAge}}
 {{pet.address}}
 {{pet.city}}
-{{#if isOwner}}
-<button href="/pet/{{pet._id}}/edit">Edit</button>
-{{/if}}
+<a href="/pet/{{pet._id}}/edit">Edit</a>
 {{> nav}}
