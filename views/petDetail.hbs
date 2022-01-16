@@ -1,10 +1,11 @@
-
-    {{pet.petCategory}}
-    {{pet.petGender}}
-    {{pet.petName}}
-    {{pet.petColor}}
-    {{pet.petAge}}
-    {{pet.address}}
-    {{pet.city}}
-<a href="/pet/{{pet._id}}/edit">Edit</a>
+{{pet.petCategory}}
+{{pet.petGender}}
+{{pet.petName}}
+{{pet.petColor}}
+{{pet.petAge}}
+{{pet.address}}
+{{pet.city}}
+{{#if isOwner}}
+<button href="/pet/{{pet._id}}/edit">Edit</button>
+{{/if}}
 {{> nav}}

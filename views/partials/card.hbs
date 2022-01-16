@@ -6,6 +6,8 @@
 		<h1>Color: {{this.petColor}}</h1>
 		<h1>Address: {{this.address}}</h1>
 		<h1>City: {{this.city}}</h1>
+		{{#if isOwner}}
+		<button href="/pet/{{pet._id}}/edit">Edit</button>
+		{{/if}}
 	</div>
-	<a class="edit-pet" href="/pet/{{this._id}}">Edit</a>
 </div>

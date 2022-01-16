@@ -64,13 +64,14 @@ function petRoutes() {
   });
 
   router.get('/:id', async (req, res, next) => {
+    const { _id } = req.session.currentUser;
     const { id } = req.params;
-
     try {
       const pet = await Pet.findById(id);
-      res.render('petDetail.hbs', { pet });
-    } catch (e) {
-      next(e);
+      const { petOwner } = pet;
+      res.render('petDetail.hbs', { pet, isOwner: _id === petOwner.toString() });
+    } catch (err) {
+      next(err);
     }
   });
 
