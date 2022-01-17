@@ -2,6 +2,7 @@ const express = require('express');
 const { isLoggedIn } = require('../middlewares');
 const Pet = require('../models/pet');
 const User = require('../models/user');
+const Favorite = require('../models/favorite');
 
 function baseRoutes() {
   const router = express.Router();
@@ -12,11 +13,23 @@ function baseRoutes() {
     }
     try {
       const user = req.session.currentUser._id;
-      const userInfo = await User.findById(user)
+      const userInfo = await User.findById(user);
       const pets = await Pet.find({});
       return res.render('home.hbs', { pets, user, userInfo, isLogged });
     } catch (e) {
       next(e);
+    }
+  });
+
+  router.get('/profile', isLoggedIn, async (req, res, next) => {
+    const user = req.session.currentUser;
+
+    try {
+      const favorites = await Favorite.find({ user: user._id }).populate('pet');
+
+      res.render('profile.hbs', { favorites });
+    } catch (error) {
+      next(error);
     }
   });
 

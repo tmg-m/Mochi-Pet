@@ -4,6 +4,7 @@ const { isLoggedIn } = require('../middlewares');
 const { findByIdAndDelete } = require('../models/pet');
 const Pet = require('../models/pet');
 const User = require('../models/user');
+const Favorite = require('../models/favorite');
 
 function petRoutes() {
   const router = express.Router();
@@ -25,7 +26,7 @@ function petRoutes() {
       for (let i = 0; i < searched.length; i++) {
         if (petCategory === searched[i].petCategory) {
           console.log(`eachPet ${eachPet}`);
-          eachPet.push(searched[i])
+          eachPet.push(searched[i]);
         }
       }
       res.render('home.hbs', { eachPet });
@@ -122,6 +123,23 @@ function petRoutes() {
     }
   });
 
+  // favorites
+
+  router.post('/:id/favorite', async (req, res, next) => {
+    const { id: petId } = req.params;
+    const { _id: userId } = req.session.currentUser;
+
+    try {
+      const favoriteCreated = await Favorite.create({
+        user: userId,
+        course: petId,
+      });
+
+      res.redirect('/');
+    } catch (error) {
+      next(error);
+    }
+  });
   return router;
 }
 
