@@ -1,5 +1,4 @@
 const express = require('express');
-const { isLoggedIn } = require('../middlewares');
 const Pet = require('../models/pet');
 const User = require('../models/user');
 

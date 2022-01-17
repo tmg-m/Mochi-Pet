@@ -7,17 +7,14 @@ function userRoutes() {
   const router = express.Router();
 
   router.get('/:id', async (req, res, next) => {
-    const { id } = req.params;
+    const { _id } = req.session.currentUser;
+    const user = req.session.currentUser._id;
     try {
-      const user = await User.findById(id).populate('userPets');
-      res.render('user/profile.hbs', { user });
+      const userObject = await User.findById(_id).populate('userPets');
+      res.render('user/profile.hbs', { userObject, user });
     } catch (e) {
       next(e);
     }
-  });
-
-  router.get('/mylist', (req, res, next) => {
-    return res.render('user/mylist.hbs');
   });
 
   router.get('/:id/userEdit', async (req, res, next) => {
@@ -54,12 +51,17 @@ function userRoutes() {
     try {
       await User.findByIdAndDelete(id);
       req.session.destroy(err => {
-        next(err)
+        next(err);
       });
       res.redirect('/');
     } catch (e) {
       next(e);
     }
+  });
+
+  router.get('/:id/mylist', (req, res, next) => {
+    const user = req.session.currentUser._id
+    return res.render('user/mylist.hbs', { user });
   });
 
   // logout

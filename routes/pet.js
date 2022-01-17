@@ -1,7 +1,4 @@
 const express = require('express');
-const session = require('express-session');
-const { isLoggedIn } = require('../middlewares');
-const { findByIdAndDelete } = require('../models/pet');
 const Pet = require('../models/pet');
 const User = require('../models/user');
 
@@ -10,25 +7,26 @@ function petRoutes() {
 
   // Read
   router.get('/search', (req, res, next) => {
+    const user = req.session.currentUser._id;
     const animals = ['Dog', 'Cat', 'Hamster', 'Fish', 'Bird', 'Other'];
-    res.render('search.hbs', { animals });
+    res.render('search.hbs', { animals, user });
   });
 
   router.post('/search', async (req, res, next) => {
     const { petCategory } = req.body;
 
     try {
-      console.log('finding');
+      const user = req.session.currentUser._id;
       const searched = await Pet.find();
       const eachPet = [];
       console.log(searched);
       for (let i = 0; i < searched.length; i++) {
         if (petCategory === searched[i].petCategory) {
           console.log(`eachPet ${eachPet}`);
-          eachPet.push(searched[i])
+          eachPet.push(searched[i]);
         }
       }
-      res.render('home.hbs', { eachPet });
+      res.render('home.hbs', { eachPet, user });
     } catch (err) {
       next(err);
     }
@@ -36,7 +34,8 @@ function petRoutes() {
 
   // create
   router.get('/pet-create', (req, res, next) => {
-    return res.render('pet-create.hbs');
+    const user = req.session.currentUser._id;
+    return res.render('pet-create.hbs', { user });
   });
 
   router.post('/pet-create', async (req, res, next) => {
