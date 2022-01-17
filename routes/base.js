@@ -20,7 +20,7 @@ function baseRoutes() {
     }
   });
 
-  router.get('/profile', isLoggedIn, async (req, res, next) => {
+  router.get('/profile', async (req, res, next) => {
     const user = req.session.currentUser;
 
     try {
