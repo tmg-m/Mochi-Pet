@@ -18,7 +18,7 @@ function authRoutes() {
       return res.redirect('/');
     }
 
-    res.render('authentication/LogIn.hbs');
+    res.render('authentication/logIn.hbs');
   });
 
   router.post('/logIn', async (req, res, next) => {

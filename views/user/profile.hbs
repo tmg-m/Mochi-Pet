@@ -1,12 +1,12 @@
 <div class="profile-container">
 	<div class="userInfo">
 		<h1>User Profile</h1>
-		<h1>@{{user.username}}</h1>
-		<h1>Name: {{user.name}}</h1>
-		<a href="/user/{{user._id}}/userEdit">Edit User</a>
+		<h1>@{{userObject.username}}</h1>
+		<h1>Name: {{userObject.name}}</h1>
+		<a href="/user/{{userObject._id}}/userEdit">Edit User</a>
 	</div>
 	<div class="user-pets">
-		{{#each user.userPets}}
+		{{#each userObject.userPets}}
 		{{> myPet}}
 		{{/each}}
 	</div>
