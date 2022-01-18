@@ -1,11 +1,9 @@
 const express = require('express');
 const Pet = require('../models/pet');
-const User = require('../models/user');
-const Favorite = require('../models/favorite');
 
 function baseRoutes() {
   const router = express.Router();
-  router.get('/', async (req, res, next) => {
+  /* router.get('/', async (req, res, next) => {
     const isLogged = req.session.currentUser;
     if (!isLogged) {
       return res.render('index');
@@ -18,17 +16,24 @@ function baseRoutes() {
     } catch (e) {
       next(e);
     }
-  });
+  }); */
 
-  router.get('/profile', async (req, res, next) => {
-    const user = req.session.currentUser;
-
+  router.get('/', async (req, res, next) => {
+    const { category, gender } = req.query;
+    const query = {};
+    if (category) {
+      query.petCategory = category;
+    }
+    if (gender) {
+      query.petGender = gender;
+    }
     try {
-      const favorites = await Favorite.find({ user: user._id }).populate('pet');
-
-      res.render('profile.hbs', { favorites });
-    } catch (error) {
-      next(error);
+      const user = req.session.currentUser._id;
+      const isLogged = req.session.currentUser;
+      const pets = await Pet.find(query);
+      return res.render('home.hbs', { pets, isLogged, user, query });
+    } catch (e) {
+      next(e);
     }
   });
 

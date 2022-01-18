@@ -6,7 +6,6 @@ const Favorite = require('../models/favorite');
 function petRoutes() {
   const router = express.Router();
 
-  // Read
   router.get('/search', (req, res, next) => {
     const user = req.session.currentUser._id;
     const animals = ['Dog', 'Cat', 'Hamster', 'Fish', 'Bird', 'Other'];
@@ -15,7 +14,6 @@ function petRoutes() {
 
   router.post('/search', async (req, res, next) => {
     const { petCategory } = req.body;
-
     try {
       const user = req.session.currentUser._id;
       const searched = await Pet.find();
@@ -130,11 +128,11 @@ function petRoutes() {
     const { _id: userId } = req.session.currentUser;
 
     try {
+      console.log('not yet');
       const favoriteCreated = await Favorite.create({
         user: userId,
-        course: petId,
-      });
-
+        pet: petId,
+      }); 
       res.redirect('/');
     } catch (error) {
       next(error);
