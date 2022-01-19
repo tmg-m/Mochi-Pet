@@ -62,7 +62,7 @@ function petRoutes() {
       });
       console.log(imageUrl)
       console.log('entered');
-      await User.findByIdAndUpdate({ _id: petOwner.id }, { $push: { userPets: newPet } });
+      await User.findByIdAndUpdate({ _id: petOwner._id }, { $push: { userPets: newPet } });
       console.log({ _id });
       console.log('pet created');
       res.redirect('/');
