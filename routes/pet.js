@@ -2,6 +2,7 @@ const express = require('express');
 const Pet = require('../models/pet');
 const User = require('../models/user');
 const Favorite = require('../models/favorite');
+const fileUploader = require('../config/cloudinary.config');
 
 function petRoutes() {
   const router = express.Router();
@@ -37,11 +38,16 @@ function petRoutes() {
     return res.render('pet-create.hbs', { user });
   });
 
-  router.post('/pet-create', async (req, res, next) => {
+  router.post('/pet-create', fileUploader.single('petProfile-Image'), async (req, res, next) => {
     const { petCategory, petGender, petName, petAge, petColor, address, city } = req.body;
     const petOwner = req.session.currentUser;
 
-    console.log(petOwner);
+    let imageUrl;
+
+    if (req.file) {
+      imageUrl = req.file.path;
+    }
+
     try {
       const newPet = await Pet.create({
         petOwner,
@@ -52,8 +58,12 @@ function petRoutes() {
         petColor,
         address,
         city,
+        imageUrl,
       });
-      await User.findByIdAndUpdate({ _id: petOwner._id }, { $push: { userPets: newPet } });
+      console.log(imageUrl)
+      console.log('entered');
+      await User.findByIdAndUpdate({ _id: petOwner.id }, { $push: { userPets: newPet } });
+      console.log({ _id });
       console.log('pet created');
       res.redirect('/');
     } catch (err) {
