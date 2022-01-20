@@ -34,7 +34,9 @@ const petSchema = new mongoose.Schema({
   city: {
     type: String,
   },
-  imageUrl: String,
+  imageUrl: {
+    type: String,
+  },
 });
 
 const Pet = mongoose.model('Pet', petSchema);
