@@ -1,16 +1,17 @@
 <div class="card-pet">
+	<img class="pet-profile-img" src="/img/Golden-Lab-puppy.jpeg" alt="puppy">
+	<div class="text-layer">
+		<span>asdf</span>
+	</div>
 	<div class="pet-info">
 		<h1>Name: {{this.petName}}</h1>
 		<h1>Category: {{this.petCategory}}</h1>
 		<h1>Gender: {{this.petGender}}</h1>
-		<h1>Color: {{this.petColor}}</h1>
-		<h1>Address: {{this.address}}</h1>
 		<h1>City: {{this.city}}</h1>
 		{{#if isOwner}}
 		<button href="/pet/{{pet._id}}/edit">Edit</button>
 		{{/if}}
 	</div>
-	<a class="edit-pet" href="/pet/{{this._id}}">Edit</a>
 	<div class="flex items-center">
 		<form method="post" action="/pet/{{this._id}}/favorite">
 			<button type="submit">

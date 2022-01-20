@@ -1,6 +1,7 @@
 <div class="signUp-container">
+    <p class="logo-font sign-up-margin-logo">Pet app</p>
     <form class="signUp-form" action="/signUp" method="post">
-        <h4>Sign Up</h4>
+        <p>Sign Up</p>
         <div class="user-form">
             <svg class="w-6 h-6 login-img" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -38,7 +39,8 @@
             <input type="password" name="passwordTwo" id="passwordTwo" placeholder="Confirm password">
         </div>
         <a href="#">Terms and conditions</a>
-        <input class="auth-btn" type="submit" value="Register">
+        <input class="auth-btn gap" type="submit" value="Register">
+        <a class="auth-btn gap" href="/">back</a>
         <div class="error-msg">
             {{#if errorMessage}}
             <p style="color: rgb(255, 102, 102);">
@@ -46,6 +48,5 @@
             </p>
             {{/if}}
         </div>
-        <a class="auth-btn" href="/">back</a>
     </form>
 </div>

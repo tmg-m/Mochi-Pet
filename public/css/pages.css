@@ -1,12 +1,27 @@
 /* Home */
 .home-container {
-  margin-top: 50px;
-  margin-bottom: 100px;
+  width: 100%;
+  height: max-content;
+  padding-top: 50px;
+  padding-bottom: 70px;
+  background-color: rgb(133, 133, 133);
+  display: flex;
+  justify-content: center;
 }
 
 .home-user-info {
   height: 50px;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.home-mainlogo {
+  font-size: 1.2rem;
+  width: 75px;
+  color: orange;
+  margin: -30px 42% 20px;
+  position: fixed;
+  z-index: 1; 
 }
 
 /* Profile */

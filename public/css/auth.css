@@ -14,7 +14,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 35px;
 }
 
 .user-form {
@@ -61,7 +61,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('/img/istockphoto-1132462309-170667a.jpeg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position-y: 40%;
@@ -72,19 +71,26 @@
   color: white;
 }
 
+.logo {
+  background-color: rgba(255, 255, 255, 0);
+  mask: url(/img/petLogo.svg) no-repeat center;
+  filter: invert(20%);
+}
+
 .img-container-login {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('/img/istockphoto-1132462309-170667a.jpeg');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position-x: 52%;
-  background-position-y: 10%;
-  background-size: 200px 200px;
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
   color: white;
+}
+
+.logIn-container > p {
+  font-size: 1.3rem;
+  font-weight: bolder;
 }
 
 /* Sign up */
@@ -102,4 +108,19 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
+}
+
+.signUp-form > p {
+  font-size: 1.6rem;
+  font-weight: bolder;
+  margin-bottom: 20px;
+}
+
+.gap {
+  margin-top: 10px;
+}
+
+.sign-up-margin-logo {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
 }
