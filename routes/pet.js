@@ -40,8 +40,8 @@ function petRoutes() {
 
   router.post('/pet-create', fileUploader.single('petProfile-Image'), async (req, res, next) => {
     const { petCategory, petGender, petName, petAge, petColor, address, city, existingImage } = req.body;
-    const petOwner = req.session.currentUser._id;
-    const { _id } = req.session.currentUser;
+    const petOwner = req.session.currentUser;
+
     let imageUrl;
     if (req.file) {
       imageUrl = req.file.path;
@@ -61,8 +61,7 @@ function petRoutes() {
         city,
         imageUrl,
       });
-      console.log("created")
-      await User.findByIdAndUpdate(_id, { $push: { userPets: newPet } });
+      await User.findByIdAndUpdate({ _id: petOwner._id }, { $push: { userPets: newPet } });
       console.log('pet created');
       res.redirect('/');
     } catch (err) {
