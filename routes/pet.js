@@ -42,8 +42,6 @@ function petRoutes() {
     const { petCategory, petGender, petName, petAge, petColor, address, city, existingImage } = req.body;
     const petOwner = req.session.currentUser;
 
-    console.log(petOwner);
-
     let imageUrl;
     if (req.file) {
       imageUrl = req.file.path;
@@ -63,7 +61,6 @@ function petRoutes() {
         city,
         imageUrl,
       });
-      console.log(imageUrl)
       await User.findByIdAndUpdate({ _id: petOwner._id }, { $push: { userPets: newPet } });
       console.log('pet created');
       res.redirect('/');
