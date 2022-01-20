@@ -14,19 +14,15 @@ const petSchema = new mongoose.Schema({
   petGender: {
     type: String,
     enum: ['Male', 'Female'],
-    required: true,
   },
   petName: {
     type: String,
-    required: true,
   },
   petAge: {
     type: String,
-    required: true,
   },
   petColor: {
     type: String,
-    required: true,
   },
   address: {
     type: String,
@@ -34,6 +30,7 @@ const petSchema = new mongoose.Schema({
   city: {
     type: String,
   },
+  imageUrl: String,
 });
 
 const Pet = mongoose.model('Pet', petSchema);
