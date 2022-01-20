@@ -70,12 +70,13 @@ function petRoutes() {
   });
 
   router.get('/:id', async (req, res, next) => {
+    const user = req.session.currentUser._id;
     const { _id } = req.session.currentUser;
     const { id } = req.params;
     try {
       const pet = await Pet.findById(id);
       const { petOwner } = pet;
-      res.render('petDetail.hbs', { pet, isOwner: _id === petOwner.toString() });
+      res.render('petDetail.hbs', { pet, user, isOwner: _id === petOwner.toString() });
     } catch (err) {
       next(err);
     }
@@ -83,24 +84,28 @@ function petRoutes() {
 
   // edit pet
   router.get('/:id/edit', async (req, res, next) => {
+    const user = req.session.currentUser._id;
     const { id } = req.params;
     try {
       const pet = await Pet.findById(id);
-      console.log('id found');
-      res.render('petEdit.hbs', { pet });
-      console.log('ggwp');
+      res.render('petEdit.hbs', { pet, user });
     } catch (e) {
       next(e);
     }
   });
 
-  router.post('/:id/edit', async (req, res, next) => {
+  router.post('/:id/edit', fileUploader.single('petProfile-Image'), async (req, res, next) => {
     const { id } = req.params;
-    console.log(id);
-    const { petCategory, petGender, petName, petAge, petColor, address, city } = req.body;
+    console.log('ok');
+    const { petCategory, petGender, petName, petAge, petColor, address, city, existingImage } = req.body;
+    let imageUrl;
+    if (req.file) {
+      imageUrl = req.file.path;
+    } else {
+      imageUrl = existingImage;
+    }
 
     try {
-      console.log('editing');
       await Pet.findByIdAndUpdate(id, {
         petCategory,
         petGender,
@@ -109,6 +114,7 @@ function petRoutes() {
         petAge,
         address,
         city,
+        imageUrl,
       });
       console.log('done');
       res.redirect('/');

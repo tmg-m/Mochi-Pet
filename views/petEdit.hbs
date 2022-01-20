@@ -1,4 +1,4 @@
-<form action="/pet/{{pet._id}}/edit" method="POST">
+<form action="/pet/{{pet._id}}/edit" method="POST" enctype="multipart/form-data">
     <h4>Your pet</h4>
     <select name="petCategory" id="petCategory">
         <option>{{pet.petCategory}}</option>
@@ -24,6 +24,7 @@
     <input type="text" name="petColor" id="petColor" placeholder="{{pet.petColor}}">
     <input type="text" name="address" id="address" placeholder="{{pet.address}}">
     <input type="text" name="city" id="city" placeholder="{{pet.city}}">
+    <input type="file" name="petProfile-Image" />
     <input class="botons" type="submit" value="Add">
 </form>
 <form action="/pet/{{pet._id}}/delete" method="POST">

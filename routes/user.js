@@ -11,7 +11,7 @@ function userRoutes() {
     const user = req.session.currentUser._id;
     try {
       const userObject = await User.findById(_id).populate('userPets');
-      res.render('user/profile.hbs', { userObject, user });
+      res.render('user/profile.hbs', { userObject, user});
     } catch (e) {
       next(e);
     }
