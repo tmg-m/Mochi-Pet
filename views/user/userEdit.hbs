@@ -1,21 +1,22 @@
-<div>
-    <form action="/user/{{user._id}}/userEdit" method="POST" enctype="multipart/form-data">
+<div class="user-edit-container">
+    <form class="form-container" action="/user/{{user._id}}/userEdit" method="POST" enctype="multipart/form-data">
         <h4>Edit User</h4>
-        <input type="text" name="username" id="username" value="{{user.username}}">
-        <input type="text" name="name" id="name" value="{{user.name}}">
-        <input type="email" name="email" id="email" value="{{user.email}}">
-        <input type="file" name="petProfile-Image" />
-        <input class="botons" type="submit" value="Edit">
-        {{#if errorMessage}}
-        <span style="background-color: rgb(255, 51, 51);
-            color: white;">
-            {{errorMessage}}
-        </span>
-        {{/if}}
-        <button><a href="/user/{{user._id}}">back</a></button>
+        <input class="user-form gap" type="text" name="username" id="username" value="{{user.username}}">
+        <input class="user-form gap" type="text" name="name" id="name" value="{{user.name}}">
+        <input class="user-form gap" type="email" name="email" id="email" value="{{user.email}}">
+        <h1 class="gap" >add picture</h1>
+        <input class="gap"type="file" name="petProfile-Image" />
+        <input class="auth-btn gap" type="submit" value="Edit">
+        <button class="auth-btn gap" ><a href="/user/{{user._id}}">back</a></button>
     </form>
     <form action="/user/{{user._id}}/delete" method="POST">
-        <button type="submit">delete Account</button>
+        <button class="auth-btn gap deleteaccount" type="submit">delete Account</button>
     </form>
+    {{#if errorMessage}}
+    <span style="background-color: rgb(255, 51, 51);
+                color: white;">
+        {{errorMessage}}
+    </span>
+    {{/if}}
 </div>
 {{> nav}}

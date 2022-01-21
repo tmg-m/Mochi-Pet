@@ -1,33 +1,36 @@
-<form action="/pet/{{pet._id}}/edit" method="POST" enctype="multipart/form-data">
-    <h4>Your pet</h4>
-    <select name="petCategory" id="petCategory">
-        <option>{{pet.petCategory}}</option>
-        <option Value="Dog">Dog</option>
-        <option value="Cat">Cat</option>
-        <option value="Hamster">Hamster</option>
-        <option value="Fish">Fish</option>
-        <option value="Bird">Bird</option>
-        <option value="Other">Other</option>
-    </select>
-    <div>
+<div class="pet-edit-container">
+    <form class="form-container" action="/pet/{{pet._id}}/edit" method="POST" enctype="multipart/form-data">
+        <h4>Your pet</h4>
+        <select class="user-form gap" name="petCategory" id="petCategory">
+            <option>{{pet.petCategory}}</option>
+            <option Value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+            <option value="Hamster">Hamster</option>
+            <option value="Fish">Fish</option>
+            <option value="Bird">Bird</option>
+            <option value="Other">Other</option>
+        </select>
         <div>
-            <label for="Male">Male</label>
-            <input type="radio" name="petGender" id="male" value="Male"{{{setChecked 'Male' pet.petGender}}}>
+            <div>
+                <label for="Male">Male</label>
+                <input type="radio" name="petGender" id="male" value="Male" {{{setChecked 'Male' pet.petGender}}}>
+            </div>
+            <div>
+                <label for="Male">Female</label>
+                <input type="radio" name="petGender" id="female" value="Female" {{{setChecked 'Female' pet.petGender}}}>
+            </div>
         </div>
-        <div>
-            <label for="Male">Female</label>
-            <input type="radio" name="petGender" id="female" value="Female"{{{setChecked 'Female' pet.petGender}}}>
-        </div>
-    </div>
-    <input type="text" name="petName" id="petName" value="{{pet.petName}}">
-    <input type="number" name="petAge" id="petAge" value="{{pet.petAge}}" min="0" max="100">
-    <input type="text" name="petColor" id="petColor" value="{{pet.petColor}}">
-    <input type="text" name="address" id="address" value="{{pet.address}}">
-    <input type="text" name="city" id="city" value="{{pet.city}}">
-    <input type="file" name="petProfile-Image" />
-    <input class="botons" type="submit" value="Add">
-</form>
-<form action="/pet/{{pet._id}}/delete" method="POST">
-    <button type="submit">delete pet</button>
-</form>
+        <input class="user-form gap" type="text" name="petName" id="petName" value="{{pet.petName}}">
+        <input class="user-form gap" type="number" name="petAge" id="petAge" value="{{pet.petAge}}" min="0" max="100">
+        <input class="user-form gap" type="text" name="petColor" id="petColor" value="{{pet.petColor}}">
+        <input class="user-form gap" type="text" name="address" id="address" value="{{pet.address}}">
+        <input class="user-form gap" type="text" name="city" id="city" value="{{pet.city}}">
+        <p class="gap">Add photo</p>
+        <input class="gap" type="file" name="petProfile-Image" />
+        <input class="botons auth-btn gap" type="submit" value="Add">
+    </form>
+    <form action="/pet/{{pet._id}}/delete" method="POST">
+        <button class="auth-btn gap deleteaccount" type="submit">delete pet</button>
+    </form>
+</div>
 {{> nav}}

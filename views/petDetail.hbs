@@ -1,12 +1,14 @@
-{{pet.petCategory}}
-{{pet.petGender}}
-{{pet.petName}}
-{{pet.petColor}}
-{{pet.petAge}}
-{{pet.address}}
-{{pet.city}}
-<img src="{{pet.imageUrl}}" alt="ggwp">
-{{#if isOwner}}
-<button href="/pet/{{pet._id}}/edit">Edit</button>
-{{/if}}
+<div class="petDetail-container">
+    <img class="pet-img-size" src="{{pet.imageUrl}}" alt="ggwp">
+    <p>Category: {{pet.petCategory}}</p>
+    <p>Gender: {{pet.petGender}}</p>
+    <p>Name: {{pet.petName}}</p>
+    <p>Color: {{pet.petColor}}</p>
+    <p>Age: {{pet.petAge}}</p>
+    <p>Address: {{pet.address}}</p>
+    <p>City: {{pet.city}}</p>
+    {{#if isOwner}}
+    <button class="auth-btn gap"href="/pet/{{pet._id}}/edit">Edit</button>
+    {{/if}}
+</div>
 {{> nav}}
