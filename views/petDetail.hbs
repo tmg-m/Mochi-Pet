@@ -6,5 +6,7 @@
 {{pet.address}}
 {{pet.city}}
 <img src="{{pet.imageUrl}}" alt="ggwp">
-<a href="/pet/{{pet._id}}/edit">Edit</a>
+{{#if isOwner}}
+<button href="/pet/{{pet._id}}/edit">Edit</button>
+{{/if}}
 {{> nav}}

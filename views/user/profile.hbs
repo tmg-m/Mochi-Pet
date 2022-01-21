@@ -5,10 +5,15 @@
 		<h1>Name: {{userObject.name}}</h1>
 		<a href="/user/{{userObject._id}}/userEdit">Edit User</a>
 	</div>
-	<div class="user-pets">
-		{{#each userObject.userPets}}
-		{{> myPet}}
-		{{/each}}
+	<div class="user-pets-section">
+		<p>My Pets</p>
+		<div class="user-pets">
+			{{#each userObject.userPets}}
+			<a href="/pet/{{this._id}}">
+				{{> myPet}}
+			</a>
+			{{/each}}
+		</div>
 	</div>
 	<button><a href="/pet/pet-create">Add Pet</a></button>
 	<form action="logout" id="logout-form" method="POST">
