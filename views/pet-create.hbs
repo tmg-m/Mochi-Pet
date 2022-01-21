@@ -1,8 +1,8 @@
-<h1>pet create</h1>
-<div class="SignUp-container">
+
+<div class="pet-create-container">
     <form action="/pet/pet-create" method="POST" enctype="multipart/form-data">
         <h4>Your pet</h4>
-        <select name="petCategory" id="petCategory">
+        <select class="user-form gap" name="petCategory" id="petCategory">
             <option selected>Category</option>
             <option Value="Dog">Dog</option>
             <option value="Cat">Cat</option>
@@ -11,7 +11,7 @@
             <option value="Bird">Bird</option>
             <option value="Other">Other</option>
         </select>
-        <div>
+        <div class="gap">
             <div>
                 <label for="Male">Male</label>
                 <input type="radio" name="petGender" id="male" value="Male">
@@ -21,20 +21,20 @@
                 <input type="radio" name="petGender" id="female" value="Female">
             </div>
         </div>
-        <input type="text" name="petName" id="petName" placeholder="Name">
-        <input type="number" name="petAge" id="petAge" placeholder="Age" min="0" max="100">
-        <input type="text" name="petColor" id="petColor" placeholder="Color">
-        <input type="text" name="address" id="address" placeholder="address">
-        <input type="text" name="city" id="city" placeholder="City">
-        <input type="file" name="petProfile-Image" />
-        <input class="botons" type="submit" value="Add">
-        {{#if errorMessage}}
-        <span style="background-color: rgb(255, 51, 51);
-            color: white;">
-            {{errorMessage}}
-        </span>
-        {{/if}}
+        <input class="user-form gap" type="text" name="petName" id="petName" placeholder="Name">
+        <input class="user-form gap" type="number" name="petAge" id="petAge" placeholder="Age" min="0" max="100">
+        <input class="user-form gap" type="text" name="petColor" id="petColor" placeholder="Color">
+        <input class="user-form gap" type="text" name="address" id="address" placeholder="address">
+        <input class="user-form gap" type="text" name="city" id="city" placeholder="City">
+        <input class="gap" type="file" name="petProfile-Image" />
+        <input class="auth-btn gap" class="botons" type="submit" value="Add">
     </form>
-    <button><a href="/">back</a></button>
+    <a class="auth-btn gap" href="/">back</a>
+    {{#if errorMessage}}
+    <span style="background-color: rgb(255, 51, 51);
+                color: white;">
+        {{errorMessage}}
+    </span>
+    {{/if}}
 </div>
 {{> nav}}
