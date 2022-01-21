@@ -31,6 +31,13 @@
   width: 100%;
 }
 
+.user-profile-img {
+  display: block;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
 .userInfo {
   padding-bottom: 100px;
 }

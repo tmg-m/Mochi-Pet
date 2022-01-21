@@ -1,9 +1,10 @@
 <div>
-    <form action="/user/{{user._id}}/userEdit" method="POST">
+    <form action="/user/{{user._id}}/userEdit" method="POST" enctype="multipart/form-data">
         <h4>Edit User</h4>
-        <input type="text" name="username" id="username" placeholder="{{user.username}}">
-        <input type="text" name="name" id="name" placeholder="{{user.name}}">
-        <input type="email" name="email" id="email" placeholder="{{user.email}}">
+        <input type="text" name="username" id="username" value="{{user.username}}">
+        <input type="text" name="name" id="name" value="{{user.name}}">
+        <input type="email" name="email" id="email" value="{{user.email}}">
+        <input type="file" name="petProfile-Image" />
         <input class="botons" type="submit" value="Edit">
         {{#if errorMessage}}
         <span style="background-color: rgb(255, 51, 51);

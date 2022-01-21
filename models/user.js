@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema({
     required: [true, 'password is required'],
   },
   userPets: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Pet' }],
+  imageUrl: {
+    type: String,
+    default: '/img/photo-icon.jpeg',
+  },
 });
 
 const User = mongoose.model('User', userSchema);

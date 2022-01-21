@@ -2,6 +2,7 @@ const express = require('express');
 const { isLoggedIn } = require('../middlewares');
 const Pet = require('../models/pet');
 const User = require('../models/user');
+const fileUploader = require('../config/cloudinary.config');
 
 function userRoutes() {
   const router = express.Router();
@@ -11,8 +12,7 @@ function userRoutes() {
     const user = req.session.currentUser._id;
     try {
       const userObject = await User.findById(_id).populate('userPets');
-      console.log(userObject);
-      res.render('user/profile.hbs', { userObject, user});
+      res.render('user/profile.hbs', { userObject, user });
     } catch (e) {
       next(e);
     }
@@ -28,9 +28,16 @@ function userRoutes() {
     }
   });
 
-  router.post('/:id/userEdit', async (req, res, next) => {
+  router.post('/:id/userEdit', fileUploader.single('petProfile-Image'), async (req, res, next) => {
     const { id } = req.params;
-    const { username, name, email } = req.body;
+    const { username, name, email, existingImage } = req.body;
+
+    let imageUrl;
+    if (req.file) {
+      imageUrl = req.file.path;
+    } else {
+      imageUrl = existingImage;
+    }
 
     try {
       console.log('editing');
@@ -38,6 +45,7 @@ function userRoutes() {
         username,
         name,
         email,
+        imageUrl,
       });
       res.redirect('/');
     } catch (e) {
@@ -61,7 +69,7 @@ function userRoutes() {
   });
 
   router.get('/:id/mylist', (req, res, next) => {
-    const user = req.session.currentUser._id
+    const user = req.session.currentUser._id;
     return res.render('user/mylist.hbs', { user });
   });
 
