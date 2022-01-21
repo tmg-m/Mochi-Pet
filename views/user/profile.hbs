@@ -1,9 +1,32 @@
 <div class="profile-container">
+	<div class="menu">
+		<button class="menuBtn"><a href="/pet/pet-create">
+				<img src="" alt="">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+					stroke="darkorange">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+						d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+				</svg>
+			</a></button>
+		<div>
+			<form action="logout" id="logout-form" method="POST">
+				<button class="menuBtn">
+					<svg class="size-logout" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+						viewBox="0 0 24 24" stroke="darkred">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+					</svg>
+				</button>
+			</form>
+		</div>
+	</div>
 	<div class="userInfo">
-		<img class="user-profile-img" src="{{userObject.imageUrl}}" alt="">
-		<h1>@{{userObject.username}}</h1>
-		<h1>Name: {{userObject.name}}</h1>
-		<a href="/user/{{userObject._id}}/userEdit">Edit User</a>
+		<img class="user-profile-img" src="{{userObject.imageUrl}}" alt="user-profile-img">
+		<div class="user-discription">
+			<h1>@{{userObject.username}}</h1>
+			<h1>Name: {{userObject.name}}</h1>
+			<a href="/user/{{userObject._id}}/userEdit">Edit User</a>
+		</div>
 	</div>
 	<div class="user-pets-section">
 		<p>My Pets</p>
@@ -15,9 +38,5 @@
 			{{/each}}
 		</div>
 	</div>
-	<button><a href="/pet/pet-create">Add Pet</a></button>
-	<form action="logout" id="logout-form" method="POST">
-		<button>Logout</button>
-	</form>
 </div>
 {{> nav}}

@@ -32,14 +32,14 @@ input:focus {
 }
 /* nav */
 nav {
-  height: 50px;
+  height: 55px;
   width: 95%;
   border-radius: 20px;
   position: fixed;
   display: flex;
   justify-content: center;
   bottom: 10;
-  background: #ebebeb;
+  background: #f0f0f0;
   box-shadow: inset 5px 5px 10px rgba(118, 118, 118, 0.1), -2px -2px 5px rgba(255, 255, 255, 0.8),
     6px 6px 7px rgba(0, 0, 0, 0.2);
 }
