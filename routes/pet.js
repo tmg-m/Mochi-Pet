@@ -48,7 +48,7 @@ function petRoutes() {
     } else {
       imageUrl = existingImage;
     }
-    console.log("creating")
+    console.log('creating');
     try {
       const newPet = await Pet.create({
         petOwner,
@@ -88,7 +88,7 @@ function petRoutes() {
     const { id } = req.params;
     try {
       const pet = await Pet.findById(id);
-      console.log(pet)
+      console.log(pet);
       res.render('petEdit.hbs', { pet, user });
     } catch (e) {
       next(e);
@@ -141,18 +141,31 @@ function petRoutes() {
   router.post('/:id/favorite', async (req, res, next) => {
     const { id: petId } = req.params;
     const { _id: userId } = req.session.currentUser;
-
     try {
       console.log('not yet');
-      const favoriteCreated = await Favorite.create({
+      await Favorite.create({
         user: userId,
         pet: petId,
-      }); 
+      });
       res.redirect('/');
     } catch (error) {
       next(error);
     }
   });
+
+  router.post('/:id/unfavorite', async (req, res, next) => {
+    const { id: petId } = req.params;
+    try {
+      console.log('not yet');
+      await Favorite.findByIdAndDelete({
+        pet: petId,
+      });
+      res.redirect('/');
+    } catch (error) {
+      next(error);
+    }
+  });
+
   return router;
 }
 

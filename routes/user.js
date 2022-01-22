@@ -3,6 +3,7 @@ const { isLoggedIn } = require('../middlewares');
 const Pet = require('../models/pet');
 const User = require('../models/user');
 const fileUploader = require('../config/cloudinary.config');
+const Favorite = require('../models/favorite');
 
 function userRoutes() {
   const router = express.Router();
@@ -69,8 +70,8 @@ function userRoutes() {
   });
 
   router.get('/:id/mylist', (req, res, next) => {
-    const user = req.session.currentUser._id;
-    return res.render('user/mylist.hbs', { user });
+    const user = req.session.currentUser;
+    return res.render('user/mylist.hbs', { user, favorites });
   });
 
   // logout
