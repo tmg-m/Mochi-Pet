@@ -1,21 +1,32 @@
-<h1>search</h1>
-
-<form action="/pet/search" method="POST">
-    <h4>Your pet</h4>
-    <select name="petCategory" id="petCategory">
-        <option Value="Dog" selected>Dog</option>
-        <option value="Cat">Cat</option>
-        <option value="Hamster">Hamster</option>
-        <option value="Fish">Fish</option>
-        <option value="Bird">Bird</option>
-        <option value="Other">Other</option>
-    </select>
-    <input class="botons" type="submit" value="Search">
-</form>
-{{#if errorMessage}}
-<span style="background-color: rgb(255, 51, 51);
-            color: white;">
-    {{errorMessage}}
-</span>
-{{/if}}
+<div class="search-container">
+    <p>Search pet</p>
+    <form action="/pet/search" method="POST">
+        <h1 class="cata">Category</h1>
+        <select class="user-form" name="petCategory" id="petCategory">
+            <option Value="Dog" selected>Dog</option>
+            <option value="Cat">Cat</option>
+            <option value="Hamster">Hamster</option>
+            <option value="Fish">Fish</option>
+            <option value="Bird">Bird</option>
+            <option value="Other">Other</option>
+        </select>
+        <div class="gap radio">
+            <div>
+                <label for="Male">Male</label>
+                <input type="radio" name="gender" id="male" value="Male" checked="checked">
+            </div>
+            <div>
+                <label for="Male">Female</label>
+                <input type="radio" name="gender" id="female" value="Female">
+            </div>
+        </div>
+        <input class="auth-btn gap" type="submit" value="Search">
+    </form>
+    {{#if errorMessage}}
+    <span style="background-color: rgb(255, 51, 51);
+                color: white;">
+        {{errorMessage}}
+    </span>
+    {{/if}}
+</div>
 {{> nav}}

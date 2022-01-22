@@ -14,7 +14,7 @@ function petRoutes() {
   });
 
   router.post('/search', async (req, res, next) => {
-    const { petCategory } = req.body;
+    const { petCategory, petGender } = req.body;
     try {
       const user = req.session.currentUser._id;
       const searched = await Pet.find();
