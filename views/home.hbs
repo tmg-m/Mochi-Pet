@@ -14,7 +14,7 @@
         </div>
         <div>
             {{#each eachPet}}
-            {{> card}}
+            <a href="/pet/{{this._id}}">{{> card}}</a>
             {{/each}}
         </div>
     </div>

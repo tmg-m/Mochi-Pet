@@ -88,6 +88,7 @@ function petRoutes() {
     const { id } = req.params;
     try {
       const pet = await Pet.findById(id);
+      console.log(pet)
       res.render('petEdit.hbs', { pet, user });
     } catch (e) {
       next(e);
