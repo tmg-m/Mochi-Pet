@@ -1,10 +1,94 @@
 # Project's name
 
-Mochi App
+Mochi App ( Mobile )
 
 ## Description
 
 Social media app for Pets
+
+## Models
+
+-User model
+
+```javascript
+ {
+  username: {
+    type: String,
+    required: [true, 'username is required'],
+    unique: true,
+  },
+  name: {
+    type: String,
+    required: [true, 'name is required'],
+  },
+  email: {
+    type: String,
+    required: [true, 'email is required'],
+    unique: true,
+  },
+  hashedPassword: {
+    type: String,
+    required: [true, 'password is required'],
+  },
+  userPets: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Pet' }],
+  imageUrl: {
+    type: String,
+    default: '/img/photo-icon.jpeg',
+  },
+}
+```  
+
+-Pet model 
+```javascript
+ {
+  petOwner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Post',
+    unique: true,
+  },
+  petCategory: {
+    type: String,
+    enum: ['Dog', 'Cat', 'Hamster', 'Fish', 'Birds', 'Other'],
+    required: true,
+  },
+  petGender: {
+    type: String,
+    enum: ['Male', 'Female'],
+  },
+  petName: {
+    type: String,
+  },
+  petAge: {
+    type: String,
+  },
+  petColor: {
+    type: String,
+  },
+  address: {
+    type: String,
+  },
+  city: {
+    type: String,
+  },
+  imageUrl: String,
+}
+```
+
+-Favourite model 
+```javascript
+ {
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  pet: {
+    type: Schema.Types.ObjectId,
+    ref: 'Pet',
+    required: true,
+  },
+}
+```  
 
 ## USER STORIES
 
@@ -61,33 +145,5 @@ Social media app for Pets
 | Preferences     | POST   | /search                       | Specify search                                   | {random values}                       | /
 | Profile pet delete    | POST   | /pet_id/pet/pet_id/delete| Delete profile pet from user's photo colection  |                                       | /profilepet   |
 
-## Models
-
--User model
-
-```javascript
- { username: String,
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  nif: String,
-  Date Birthday: Date,
-  hashedPassword: {
-    type: String,
-    required: [true, 'password is required'],
-  },}
-```  
-
--Pet model 
-```javascript
- { category: [dog, cat, others],
-  gender: [male, female],
-  name: String,
-  Age: Number,
-  Race: String,
-  Colour: String,
-  Location: [array con los diferentes barrios de Bcn]
-  }
-```
+## Links
+- [Deployed version](https://mochi-pet.herokuapp.com/)
