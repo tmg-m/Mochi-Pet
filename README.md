@@ -1,10 +1,10 @@
 # Project's name
 
-Project M2
+Mochi App
 
 ## Description
 
-instagram/tinder prototype
+Social media app for Pets
 
 ## USER STORIES
 
